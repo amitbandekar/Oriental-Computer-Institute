@@ -21,9 +21,9 @@ const ContactSection = forwardRef<HTMLDivElement>((props, ref) => {
     window.open(url, '_blank');
   };
   const openMap = () => {
-    const lat = 18.922,
-      lng = 72.834; // Gateway of India coordinates
-    const label = encodeURIComponent('Gateway of India');
+    const lat = 19.183794,
+      lng = 73.058904; // IT-Oriental Computer Institute coordinates
+    const label = encodeURIComponent('IT-Oriental Computer Institute');
     const url = `https://www.google.com/maps?q=${lat},${lng}(${label})`;
     window.open(url, '_blank');
   };
@@ -153,9 +153,7 @@ const ContactSection = forwardRef<HTMLDivElement>((props, ref) => {
                   <div>
                     <h3 className='font-subheading text-lg text-foreground mb-2'>Timing</h3>
                     <p className='font-body text-muted-foreground'>
-                      Mon - Sat: 9:00 AM - 8:00 PM
-                      <br />
-                      Sunday: 10:00 AM - 6:00 PM
+                      Mon - Sat: 8:00 AM - 9:00 PM
                     </p>
                   </div>
                 </div>

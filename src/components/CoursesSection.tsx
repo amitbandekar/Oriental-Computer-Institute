@@ -24,7 +24,7 @@ const courses = [
     students: "150+",
     rating: 4.8,
     originalPrice: "₹3000",
-    discountedPrice: "₹2100"
+    discountedPrice: "₹2100",
   },
   {
     id: 2,
@@ -35,7 +35,7 @@ const courses = [
     students: "120+",
     rating: 4.7,
     originalPrice: "₹2000",
-    discountedPrice: "₹1400"
+    discountedPrice: "₹1400",
   },
   {
     id: 3,
@@ -105,7 +105,13 @@ const courses = [
   }
 ];
 
-const CoursesSection = () => {
+const CoursesSection = ({ contactRef }: { contactRef: React.RefObject<HTMLDivElement> }) => {
+  const scrollToContact = () => {
+    if (contactRef.current) {
+      contactRef.current.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <section className="py-20 bg-secondary/30">
       <div className="container mx-auto px-4">
@@ -171,7 +177,14 @@ const CoursesSection = () => {
                  <Button
                   variant="ganpati"
                   className="w-full"
-                      onClick={() => window.dispatchEvent(new CustomEvent("enroll-course", { detail: course.name }))}
+                  onClick={() => {
+                    // Dispatch the custom event for "enroll-course"
+                    window.dispatchEvent(new CustomEvent("enroll-course", { detail: course.name }));
+                    // Scroll to the ContactSection
+                    if (contactRef.current) {
+                      contactRef.current.scrollIntoView({ behavior: "smooth" });
+                    }
+                  }}
                 >
                   Enroll Now
                 </Button>
