@@ -37,33 +37,11 @@ const packages = [
   },
   {
     id: 2,
-    name: "Smart Accountant Pack",
-    icon: Calculator,
-    price: "₹11,999",
-    originalPrice: "₹17,142",
-    popular: true,
-    description: "Complete accounting solution for professionals",
-    courses: [
-      "M.S Office",
-      "Tally with GST",
-      "Tally Prime",
-      "Typing Course"
-    ],
-    features: [
-      "Real-world Projects",
-      "GST Compliance Training",
-      "Industry Certification",
-      "Expert Mentorship"
-    ],
-    color: "from-emerald-500 to-teal-500"
-  },
-  {
-    id: 3,
     name: "Data Mastery Pack",
     icon: Database,
     price: "₹13,999",
     originalPrice: "₹19,998",
-    popular: false,
+    popular: true,
     description: "Master data analysis and management",
     courses: [
       "M.S Office",
@@ -80,6 +58,29 @@ const packages = [
     ],
     color: "from-purple-500 to-indigo-500"
   },
+  {
+    id: 3,
+    name: "Smart Accountant Pack",
+    icon: Calculator,
+    price: "₹11,999",
+    originalPrice: "₹17,142",
+    popular: false,
+    description: "Complete accounting solution for professionals",
+    courses: [
+      "M.S Office",
+      "Tally with GST",
+      "Tally Prime",
+      "Typing Course"
+    ],
+    features: [
+      "Real-world Projects",
+      "GST Compliance Training",
+      "Industry Certification",
+      "Expert Mentorship"
+    ],
+    color: "from-emerald-500 to-teal-500"
+  },
+  
   {
     id: 4,
     name: "Government Exam Pack",
@@ -147,9 +148,7 @@ const PackagesSection = () => {
             return (
               <Card 
                 key={pkg.id} 
-                className={`course-card shadow-card hover:shadow-ganpati border-0 relative ${
-                  pkg.popular ? 'ring-2 ring-primary' : ''
-                }`}
+                className={`course-card shadow-card hover:shadow-ganpati border-0 relative ring-2 ring-primary `}
               >
                 {pkg.popular && (
                   <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
