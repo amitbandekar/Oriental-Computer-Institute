@@ -6,6 +6,7 @@ import { MapPin, Phone, Mail, Clock, MessageCircle, Send, Building, Navigation, 
 import React, { forwardRef, useState, useRef, useEffect } from 'react';
 
 const ContactSection = forwardRef<HTMLDivElement>((props, ref) => {
+  
   const [selectedCourse, setSelectedCourse] = useState('');
 
   useEffect(() => {
@@ -31,6 +32,28 @@ const ContactSection = forwardRef<HTMLDivElement>((props, ref) => {
   const [loading, setLoading] = useState(false);
   const courseSelectRef = useRef<HTMLSelectElement>(null);
 
+  const [status, setStatus] = useState("");
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const formData = new FormData(form);
+
+    try {
+      await fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: new URLSearchParams(formData as any).toString(),
+      });
+      setStatus("success");
+      form.reset(); // clear inputs
+    } catch (err) {
+      setStatus("error");
+    }
+  };
+
+  
+  {/* 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setLoading(true);
@@ -68,7 +91,8 @@ const ContactSection = forwardRef<HTMLDivElement>((props, ref) => {
     } finally {
       setLoading(false);
     }
-  };
+  }; 
+  */}
 
   const resetForm = () => {
     setFlipped(false);
@@ -186,57 +210,118 @@ const ContactSection = forwardRef<HTMLDivElement>((props, ref) => {
                     </CardTitle>
                   </CardHeader>
                   <CardContent className='flex-1 flex flex-col'>
-                    <form className='flex-1 flex flex-col space-y-4' onSubmit={handleSubmit}>
-                      <div className='grid grid-cols-1 sm:grid-cols-2 gap-4'>
+                    <form
+                      name="contact"
+                      method="POST"
+                      data-netlify="true"
+                      data-netlify-honeypot="bot-field"
+                      onSubmit={handleSubmit}
+                      className="flex-1 flex flex-col space-y-4"
+                    >
+                      {/* Required hidden fields for Netlify */}
+                      <input type="hidden" name="form-name" value="contact" />
+                      <p hidden>
+                        <label>
+                          Don’t fill this out if you’re human: <input name="bot-field" />
+                        </label>
+                      </p>
+
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                         <div>
-                          <label className='block text-sm font-medium text-foreground mb-2'>First Name</label>
-                          <Input name='firstName' placeholder='Enter your first name' required />
+                          <label className="block text-sm font-medium text-foreground mb-2">
+                            First Name
+                          </label>
+                          <Input name="firstName" placeholder="Enter your first name" required />
                         </div>
                         <div>
-                          <label className='block text-sm font-medium text-foreground mb-2'>Last Name</label>
-                          <Input name='lastName' placeholder='Enter your last name' required />
+                          <label className="block text-sm font-medium text-foreground mb-2">
+                            Last Name
+                          </label>
+                          <Input name="lastName" placeholder="Enter your last name" required />
                         </div>
                       </div>
 
                       <div>
-                        <label className='block text-sm font-medium text-foreground mb-2'>Phone Number</label>
-                        <Input name='phone' type='tel' placeholder='Enter your phone number' required />
+                        <label className="block text-sm font-medium text-foreground mb-2">
+                          Phone Number
+                        </label>
+                        <Input
+                          name="phone"
+                          type="tel"
+                          placeholder="Enter your phone number"
+                          required
+                        />
                       </div>
 
                       <div>
-                        <label className='block text-sm font-medium text-foreground mb-2'>Email Address</label>
-                        <Input name='email' type='email' placeholder='Enter your email address' required />
+                        <label className="block text-sm font-medium text-foreground mb-2">
+                          Email Address
+                        </label>
+                        <Input
+                          name="email"
+                          type="email"
+                          placeholder="Enter your email address"
+                          required
+                        />
                       </div>
 
                       <div>
-                        <label className='block text-sm font-medium text-foreground mb-2'>Course Interest</label>
+                        <label className="block text-sm font-medium text-foreground mb-2">
+                          Course Interest
+                        </label>
                         <select
                           value={selectedCourse}
                           onChange={(e) => setSelectedCourse(e.target.value)}
-                          name='course'
-                          className='w-full px-3 py-2 border border-input rounded-md bg-background text-foreground transition-smooth focus:ring-2 focus:ring-primary'>
-                          <option value=''>Select a course</option>
-                          <option value='Computer Fundamentals'>Computer Fundamentals</option>
-                          <option value='Operating System'>Operating System</option>
-                          <option value='CCC Course'>CCC Course</option>
-                          <option value='M.S Office'>M.S Office</option>
-                          <option value='Advanced Excel'>Advanced Excel</option>
-                          <option value='Typing Course'>Typing Course</option>
-                          <option value='Tally Prime with GST'>Tally Prime with GST</option>
-                          <option value='DTP / DTP with AI'>DTP / DTP with AI</option>
+                          name="course"
+                          className="w-full px-3 py-2 border border-input rounded-md bg-background text-foreground transition-smooth focus:ring-2 focus:ring-primary"
+                          required
+                        >
+                          <option value="">Select a course</option>
+                          <option value="Computer Fundamentals">Computer Fundamentals</option>
+                          <option value="Operating System">Operating System</option>
+                          <option value="CCC Course">CCC Course</option>
+                          <option value="M.S Office">M.S Office</option>
+                          <option value="Advanced Excel">Advanced Excel</option>
+                          <option value="Typing Course">Typing Course</option>
+                          <option value="Tally Prime with GST">Tally Prime with GST</option>
+                          <option value="DTP / DTP with AI">DTP / DTP with AI</option>
                         </select>
                       </div>
 
-                      <div className='flex-1'>
-                        <label className='block text-sm font-medium text-foreground mb-2'>Message</label>
-                        <Textarea name='message' rows={4} defaultValue="Hi, I'm interested in knowing more about your courses. Please share the details." className='h-full min-h-[100px]' required />
+                      <div className="flex-1">
+                        <label className="block text-sm font-medium text-foreground mb-2">
+                          Message
+                        </label>
+                        <Textarea
+                          name="message"
+                          rows={4}
+                          defaultValue="Hi, I'm interested in knowing more about your courses. Please share the details."
+                          className="h-full min-h-[100px]"
+                          required
+                        />
                       </div>
 
-                      <Button variant='ganpati' size='lg' className='w-full mt-4' type='submit' disabled={loading}>
-                        <Send className='w-5 h-5 mr-2' />
-                        {loading ? 'Sending...' : 'Send Message'}
+                      <Button
+                        variant="ganpati"
+                        size="lg"
+                        className="w-full mt-4"
+                        type="submit"
+                      >
+                        <Send className="w-5 h-5 mr-2" />
+                        Send Message
                       </Button>
                     </form>
+                    {/* Success/Error box */}
+                    {status === "success" && (
+                      <div className="mt-4 p-4 bg-green-100 text-green-700 rounded">
+                        ✅ Thank you! Your message has been sent.
+                      </div>
+                    )}
+                    {status === "error" && (
+                      <div className="mt-4 p-4 bg-red-100 text-red-700 rounded">
+                        ❌ Oops, something went wrong. Please try again.
+                      </div>
+                    )}
                   </CardContent>
                 </Card>
               </div>
