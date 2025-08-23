@@ -1,10 +1,15 @@
 import { Button } from "@/components/ui/button";
 import { Phone, Menu, X } from "lucide-react";
 import { useState } from "react";
+import logo from "@/assets/logo.png";
+
 
 const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-
+ const handleCall = () => {
+    // Replace with your desired phone number
+    window.location.href = "tel:+919167602808";
+  };
   return (
     <header className="bg-white shadow-card border-b sticky top-0 z-50">
       <div className="container mx-auto px-4 py-3">
@@ -12,12 +17,16 @@ const Header = () => {
         <div className="flex items-center justify-between">
           {/* Logo and Institute Name */}
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 md:w-12 md:h-12 bg-gradient-ganpati rounded-full flex items-center justify-center text-white font-bold text-lg md:text-xl transition-smooth hover:scale-105">
-              OCI
-            </div>
+          <div className="w-10 h-10 md:w-12 md:h-12 bg-white border-2 border-black rounded-full flex items-center justify-center transition-smooth hover:scale-105 overflow-hidden">
+  <img 
+          src={logo} 
+    alt="OCI Logo" 
+    className="w-full h-full object-cover rounded-full"
+  />
+</div>
             <div className="hidden sm:block">
               <h1 className="font-heading text-lg md:text-2xl text-foreground leading-tight">
-                Oriental Computer Institute
+                IT - Oriental Computer Institute
               </h1>
               <p className="text-xs md:text-sm text-muted-foreground font-body">
                 Learn More, Pay Less – Limited Time!
@@ -38,7 +47,7 @@ const Header = () => {
           <div className="hidden md:flex items-center gap-4">
             <div className="flex items-center gap-2 text-sm text-muted-foreground">
               <Phone className="w-4 h-4 text-primary" />
-              <span className="font-body">8826853976 / 8108378214</span>
+              <span className="font-body">8828539765 / 8108378214</span>
             </div>
             <Button variant="ganpati" size="sm" className="whitespace-nowrap shadow-card hover:shadow-ganpati">
               Enquire Now
@@ -47,7 +56,7 @@ const Header = () => {
 
           {/* Mobile Menu Button */}
           <div className="flex md:hidden items-center gap-2">
-            <Button variant="ganpati" size="sm" className="px-3">
+            <Button variant="ganpati" size="sm" className="px-3" onClick={handleCall}>
               Call
             </Button>
             <Button
@@ -71,13 +80,16 @@ const Header = () => {
             <div className="flex flex-col gap-3">
               <div className="flex items-center gap-2 text-sm text-muted-foreground justify-center">
                 <Phone className="w-4 h-4 text-primary" />
-                <span className="font-body">8826853976 / 8108378214</span>
+                <span className="font-body"><a href="tel:8108378214">8108378214</a> /<a href="tel:8828539765">8828539765</a> </span>
               </div>
               <Button 
                 variant="ganpati" 
                 size="sm" 
                 className="w-full shadow-card hover:shadow-ganpati"
-                onClick={() => setIsMobileMenuOpen(false)}
+                onClick={() => {
+                  setIsMobileMenuOpen(false);
+                  handleCall();
+                }}
               >
                 Enquire Now
               </Button>

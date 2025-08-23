@@ -25,7 +25,7 @@ const Footer = () => {
                 OCI
               </div>
               <div>
-                <h3 className="font-heading text-xl">Oriental Computer Institute</h3>
+                <h3 className="font-heading text-xl">IT - Oriental Computer Institute</h3>
                 <p className="text-sm opacity-80">Excellence in IT Education</p>
               </div>
             </div>
@@ -123,8 +123,8 @@ const Footer = () => {
               <div className="flex items-center gap-3">
                 <Phone className="w-4 h-4 text-yellow-300 flex-shrink-0" />
                 <div className="opacity-80">
-                  <a href="tel:8826853976" className="hover:text-yellow-300 transition-smooth">
-                    8826853976
+                  <a href="tel:8828539765" className="hover:text-yellow-300 transition-smooth">
+                    8828539765
                   </a>
                   {" / "}
                   <a href="tel:8108378214" className="hover:text-yellow-300 transition-smooth">
@@ -167,7 +167,7 @@ const Footer = () => {
         {/* Copyright */}
         <div className="mt-8 pt-8 border-t border-white/20 text-center">
           <p className="font-body text-sm opacity-60">
-            © 2024 Oriental Computer Institute. All rights reserved. | 
+            © 2024 IT - Oriental Computer Institute. All rights reserved. | 
             <span className="mx-2">Made with ❤️ for quality education</span>
           </p>
         </div>

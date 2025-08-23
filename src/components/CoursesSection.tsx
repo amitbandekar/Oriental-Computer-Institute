@@ -119,7 +119,7 @@ const CoursesSection = () => {
           </p>
           <div className="mt-6 inline-flex items-center gap-2 bg-gradient-ganpati text-white px-6 py-3 rounded-full font-subheading">
             <Star className="w-5 h-5" />
-            30% OFF on All Courses
+            30% OFF 
             <Star className="w-5 h-5" />
           </div>
         </div>

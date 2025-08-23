@@ -58,7 +58,7 @@ const courseSelectRef = useRef<HTMLSelectElement>(null);
       `— Sent from Website Contact Form`;
 
     try {
-      const res = await fetch("http://localhost:3000/send-message", {
+      const res = await fetch("https://6d8a3f559652.ngrok-free.app/send-message", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ name: formData.get("firstName"), message })
@@ -104,7 +104,7 @@ const courseSelectRef = useRef<HTMLSelectElement>(null);
               <CardHeader>
                 <CardTitle className="font-heading text-2xl text-foreground flex items-center gap-3">
                   <Building className="w-6 h-6 text-primary" />
-                  Oriental Computer Institute
+                  IT - Oriental Computer Institute
                 </CardTitle>
               </CardHeader>
               <CardContent className="space-y-6">
@@ -130,8 +130,8 @@ const courseSelectRef = useRef<HTMLSelectElement>(null);
                   <div>
                     <h3 className="font-subheading text-lg text-foreground mb-2">Call Us</h3>
                     <p className="font-body text-muted-foreground">
-                      <a href="tel:8826853976" className="hover:text-primary transition-smooth">
-                        8826853976
+                      <a href="tel:8828539765" className="hover:text-primary transition-smooth">
+                        8828539765
                       </a>
                       {" / "}
                       <a href="tel:8108378214" className="hover:text-primary transition-smooth">

@@ -45,7 +45,7 @@ const HeroSection = () => {
           {/* Discount Banner */}
           <div className="bg-white/20 backdrop-blur-sm rounded-2xl p-6 mb-8 pulse-glow">
             <div className="text-6xl font-heading mb-2">30%</div>
-            <div className="text-xl font-subheading">Discount on All Courses</div>
+            <div className="text-xl font-subheading">Festival Sale Discount</div>
           </div>
 
           {/* CTA Buttons - FIXED VERSION */}
