@@ -20,7 +20,6 @@ const Index = () => {
       <CoursesSection contactRef={contactRef} />
       <PackagesSection />
       <GallerySection />
-
       {/* Attach the ref to the ContactSection */}
       <ContactSection ref={contactRef} />
       <Footer />
