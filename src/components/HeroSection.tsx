@@ -1,6 +1,6 @@
 import { Button } from '@/components/ui/button';
-import { Star, Sparkles, Award, Users } from 'lucide-react';
-import ganpatiHero from '@/assets/ganpati-hero.jpg';
+import { Award, Users, BookOpen, GraduationCap } from 'lucide-react';
+import educationHero from '@/assets/education-hero.jpg';
 
 const HeroSection = ({ contactRef }: { contactRef: React.RefObject<HTMLDivElement> }) => {
   const scrollToContact = () => {
@@ -12,8 +12,8 @@ const HeroSection = ({ contactRef }: { contactRef: React.RefObject<HTMLDivElemen
   return (
     <section className='relative min-h-[600px] bg-gradient-hero overflow-hidden'>
       {/* Background Pattern */}
-      <div className='absolute inset-0 opacity-10'>
-        <img src={ganpatiHero} alt='Ganpati Festival Special Offer' className='w-full h-full object-cover' />
+      <div className='absolute inset-0 opacity-20'>
+        <img src={educationHero} alt='Computer Education Institute' className='w-full h-full object-cover' />
       </div>
 
       {/* Floating Elements */}
@@ -23,27 +23,27 @@ const HeroSection = ({ contactRef }: { contactRef: React.RefObject<HTMLDivElemen
 
       <div className='relative container mx-auto px-4 py-20'>
         <div className='max-w-4xl mx-auto text-center text-white'>
-          {/* Special Offer Badge */}
-          <div className='inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm rounded-full px-6 py-2 mb-6 pulse-glow'>
-            <Sparkles className='w-5 h-5 text-yellow-300' />
-            <span className='font-subheading text-sm'>Ganpati Special Offer</span>
-            <Star className='w-5 h-5 text-yellow-300' />
+          {/* Institute Badge */}
+          <div className='inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm rounded-full px-6 py-2 mb-6'>
+            <GraduationCap className='w-5 h-5 text-yellow-300' />
+            <span className='font-subheading text-sm'>Certified Training Institute</span>
+            <BookOpen className='w-5 h-5 text-yellow-300' />
           </div>
 
           {/* Main Headline */}
           <h1 className='font-heading text-5xl md:text-7xl mb-6 leading-tight'>
-            Learn More,
-            <span className='text-gradient-ganpati block'> Pay Less</span>
-            <span className='text-2xl md:text-3xl font-normal block mt-4'>Limited Time!</span>
+            Transform Your
+            <span className='text-gradient-primary block'> Career Today</span>
+            <span className='text-2xl md:text-3xl font-normal block mt-4'>Professional IT Training</span>
           </h1>
 
-          {/* Marathi Tagline */}
-          <p className='text-xl md:text-2xl mb-8 font-body opacity-90'>या मासूमध्ये ज्ञानाची खरी खास सवलतींचा वर्षाव!</p>
+          {/* Tagline */}
+          <p className='text-xl md:text-2xl mb-8 font-body opacity-90'>Build Skills That Matter, Create Opportunities That Last</p>
 
-          {/* Discount Banner */}
-          <div className='bg-white/20 backdrop-blur-sm rounded-2xl p-6 mb-8 pulse-glow'>
-            <div className='text-6xl font-heading mb-2'>30%</div>
-            <div className='text-xl font-subheading'>Festival Sale Discount</div>
+          {/* Feature Banner */}
+          <div className='bg-white/20 backdrop-blur-sm rounded-2xl p-6 mb-8'>
+            <div className='text-3xl font-heading mb-2'>Industry-Ready Courses</div>
+            <div className='text-xl font-subheading'>From Basics to Advanced</div>
           </div>
 
           {/* CTA Buttons - FIXED VERSION */}

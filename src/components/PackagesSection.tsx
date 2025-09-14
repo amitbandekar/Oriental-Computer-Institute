@@ -18,7 +18,7 @@ const packages = [
     name: "Job Starter Pack",
     icon: Briefcase,
     price: "₹7,999",
-    originalPrice: "₹11,428",
+    originalPrice: "₹9,999",
     popular: false,
     description: "Perfect for freshers entering the job market",
     courses: [
@@ -40,7 +40,7 @@ const packages = [
     name: "Data Mastery Pack",
     icon: Database,
     price: "₹13,999",
-    originalPrice: "₹19,998",
+    originalPrice: "₹17,999",
     popular: true,
     description: "Master data analysis and management",
     courses: [
@@ -63,7 +63,7 @@ const packages = [
     name: "Smart Accountant Pack",
     icon: Calculator,
     price: "₹11,999",
-    originalPrice: "₹17,142",
+    originalPrice: "₹14,999",
     popular: false,
     description: "Complete accounting solution for professionals",
     courses: [
@@ -86,7 +86,7 @@ const packages = [
     name: "Government Exam Pack",
     icon: GraduationCap,
     price: "₹9,999",
-    originalPrice: "₹14,285",
+    originalPrice: "₹12,999",
     popular: false,
     description: "Specially designed for government job aspirants",
     courses: [
@@ -107,7 +107,7 @@ const packages = [
     name: "Diploma in IT",
     icon: Award,
     price: "₹12,999",
-    originalPrice: "₹18,570",
+    originalPrice: "₹15,999",
     popular: false,
     description: "Complete IT foundation course",
     courses: [
@@ -134,7 +134,7 @@ const PackagesSection = () => {
         {/* Section Header */}
         <div className="text-center mb-16">
           <h2 className="font-heading text-4xl md:text-5xl text-foreground mb-4">
-            Course <span className="text-gradient-ganpati">Packages</span>
+            Course <span className="text-gradient-primary">Packages</span>
           </h2>
           <p className="text-xl text-muted-foreground font-body max-w-2xl mx-auto">
             Choose the perfect combination of courses that matches your career goals
@@ -148,11 +148,11 @@ const PackagesSection = () => {
             return (
               <Card 
                 key={pkg.id} 
-                className={`course-card shadow-card hover:shadow-ganpati border-0 relative ring-2 ring-primary `}
+                className={`course-card shadow-card hover:shadow-primary border-0 relative ring-2 ring-primary `}
               >
                 {pkg.popular && (
                   <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                    <Badge className="bg-gradient-ganpati text-white px-6 py-2 font-subheading">
+                    <Badge className="bg-gradient-primary text-white px-6 py-2 font-subheading">
                       <Star className="w-4 h-4 mr-1" />
                       Most Popular
                     </Badge>
@@ -181,7 +181,7 @@ const PackagesSection = () => {
                       {pkg.price}
                     </div>
                     <div className="text-sm text-green-600 font-medium">
-                      Save up to 30%
+                      Best Value
                     </div>
                   </div>
                 </CardHeader>
@@ -220,7 +220,7 @@ const PackagesSection = () => {
                   </div>
 
                   <Button 
-                    variant={pkg.popular ? "ganpati" : "cta"} 
+                    variant={pkg.popular ? "default" : "cta"} 
                     className="w-full"
                   >
                     Choose Package
@@ -231,15 +231,15 @@ const PackagesSection = () => {
           })}
         </div>
 
-        {/* Special Offer Banner */}
+        {/* Call to Action Banner */}
         <div className="mt-16 text-center">
-          <div className="bg-gradient-ganpati rounded-2xl p-8 text-white pulse-glow">
-            <h3 className="font-heading text-3xl mb-4">Limited Time Ganpati Offer!</h3>
+          <div className="bg-gradient-primary rounded-2xl p-8 text-white">
+            <h3 className="font-heading text-3xl mb-4">Ready to Start Your Journey?</h3>
             <p className="text-lg mb-6 font-body">
-              Get additional 5% discount on any package + Free Study Materials
+              Join hundreds of successful students who transformed their careers
             </p>
-            <Button variant="outline" size="lg"     className="text-xl px-8 py-4 bg-white text-gray-900 font-semibold hover:bg-gray-800 hover:text-white transform hover:scale-105 transition-all duration-300">
-              Claim Special Offer
+            <Button variant="outline" size="lg" className="text-xl px-8 py-4 bg-white text-gray-900 font-semibold hover:bg-gray-800 hover:text-white transform hover:scale-105 transition-all duration-300">
+              Enroll Now
             </Button>
           </div>
         </div>
