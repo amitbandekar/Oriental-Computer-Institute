@@ -3,6 +3,7 @@ import Header from '@/components/Header';
 import HeroSection from '@/components/HeroSection';
 import CoursesSection from '@/components/CoursesSection';
 import PackagesSection from '@/components/PackagesSection';
+import GallerySection from '@/components/GallerySection';
 import ContactSection from '@/components/ContactSection';
 import Footer from '@/components/Footer';
 
@@ -18,6 +19,8 @@ const Index = () => {
       <HeroSection contactRef={contactRef} />
       <CoursesSection contactRef={contactRef} />
       <PackagesSection />
+      <GallerySection />
+
       {/* Attach the ref to the ContactSection */}
       <ContactSection ref={contactRef} />
       <Footer />

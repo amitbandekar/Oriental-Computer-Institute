@@ -28,12 +28,12 @@ const Header = ({ contactRef }: { contactRef: React.RefObject<HTMLDivElement> })
             </div>
             <div className='hidden sm:block'>
               <h1 className='font-heading text-lg md:text-2xl text-foreground leading-tight'>IT - Oriental Computer Institute</h1>
-              <p className='text-xs md:text-sm text-muted-foreground font-body'>Learn More, Pay Less – Limited Time!</p>
+              <p className='text-xs md:text-sm text-muted-foreground font-body'>Transform Your Career Today!</p>
             </div>
             {/* Mobile Institute Name */}
             <div className='block sm:hidden'>
               <h1 className='font-heading text-lg text-foreground leading-tight'>OCI</h1>
-              <p className='text-xs text-muted-foreground font-body'>Limited Time Offer!</p>
+              <p className='text-xs text-muted-foreground font-body'>Transform Your Career Today</p>
             </div>
           </div>
 

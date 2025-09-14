@@ -26,8 +26,6 @@ const App = () => {
             <Route path='*' element={<NotFound />} />
           </Routes>
         </BrowserRouter>
-        <Header contactRef={contactRef} />
-        <ContactSection ref={contactRef} />
       </TooltipProvider>
     </QueryClientProvider>
   );

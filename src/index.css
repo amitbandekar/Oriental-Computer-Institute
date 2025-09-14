@@ -19,9 +19,9 @@
     --popover-foreground: 220 13% 18%;
 
     /* Ganpati Saffron Primary */
-    --primary: 24 100% 50%;
+    --primary: 217 91% 60%;
     --primary-foreground: 0 0% 100%;
-    --primary-glow: 32 100% 60%;
+    --primary-glow: 217 91% 70%;
 
     /* Modern Secondary */
     --secondary: 220 14% 96%;
@@ -40,7 +40,7 @@
 
     --border: 220 13% 91%;
     --input: 220 13% 91%;
-    --ring: 24 100% 50%;
+    --ring: 217 91% 60%;
 
     --radius: 0.75rem;
 

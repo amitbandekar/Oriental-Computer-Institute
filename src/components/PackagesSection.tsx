@@ -231,18 +231,7 @@ const PackagesSection = () => {
           })}
         </div>
 
-        {/* Special Offer Banner */}
-        <div className="mt-16 text-center">
-          <div className="bg-gradient-ganpati rounded-2xl p-8 text-white pulse-glow">
-            <h3 className="font-heading text-3xl mb-4">Limited Time Ganpati Offer!</h3>
-            <p className="text-lg mb-6 font-body">
-              Get additional 5% discount on any package + Free Study Materials
-            </p>
-            <Button variant="outline" size="lg"     className="text-xl px-8 py-4 bg-white text-gray-900 font-semibold hover:bg-gray-800 hover:text-white transform hover:scale-105 transition-all duration-300">
-              Claim Special Offer
-            </Button>
-          </div>
-        </div>
+      
       </div>
     </section>
   );
