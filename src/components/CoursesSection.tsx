@@ -20,90 +20,91 @@ const courses = [
     name: "Computer Fundamentals",
     icon: Computer,
     description: "Basic computer knowledge and operations",
-    duration: "2 Months",
+    duration: "1 Month",
     students: "150+",
     rating: 4.8,
-    originalPrice: "₹3000",
-    discountedPrice: "₹2100",
+    originalPrice: "₹2500",
+    discountedPrice: "₹2000",
   },
   {
     id: 2,
-    name: "Operating System",
-    icon: HardDrive,
-    description: "Windows OS, file management, system tools",
-    duration: "1 Month",
-    students: "120+",
-    rating: 4.7,
-    originalPrice: "₹2000",
-    discountedPrice: "₹1400",
-  },
-  {
-    id: 3,
     name: "CCC Course",
     icon: FileText,
     description: "Course on Computer Concepts certification",
     duration: "3 Months",
     students: "200+",
     rating: 4.9,
-    originalPrice: "₹4000",
-    discountedPrice: "₹2800"
+    originalPrice: "₹7500",
+    discountedPrice: "₹6000",
   },
   {
-    id: 4,
+    id: 3,
     name: "M.S Office",
     icon: Sheet,
     description: "Word, Excel, PowerPoint mastery",
-    duration: "2 Months",
+    duration: "3 Months",
     students: "300+",
     rating: 4.8,
-    originalPrice: "₹3500",
-    discountedPrice: "₹2450"
+    originalPrice: "₹5000",
+    discountedPrice: "₹4000",
   },
   {
-    id: 5,
+    id: 4,
     name: "Advanced Excel",
     icon: BarChart3,
     description: "Formulas, charts, pivot tables, macros",
-    duration: "1.5 Months",
+    duration: "2 Months",
     students: "180+",
     rating: 4.9,
-    originalPrice: "₹4000",
-    discountedPrice: "₹2800"
+    originalPrice: "₹6500",
+    discountedPrice: "₹5000",
   },
   {
-    id: 6,
-    name: "Typing Course",
-    icon: Keyboard,
-    description: "English & Hindi typing speed development",
-    duration: "1 Month",
-    students: "250+",
-    rating: 4.6,
-    originalPrice: "₹1500",
-    discountedPrice: "₹1050"
-  },
-  {
-    id: 7,
+    id: 5,
     name: "Tally Prime with GST",
     icon: Calculator,
     description: "Complete accounting with GST compliance",
-    duration: "2 Months",
+    duration: "3 Months",
     students: "160+",
     rating: 4.8,
-    originalPrice: "₹5000",
-    discountedPrice: "₹3500"
+    originalPrice: "₹9000",
+    discountedPrice: "₹7000",
+  },
+  {
+    id: 6,
+    name: "Typing Course (English / Hindi / Marathi)",
+    icon: Keyboard,
+    description: "Typing speed development in English, Hindi & Marathi",
+    duration: "3 Months",
+    students: "250+",
+    rating: 4.6,
+    originalPrice: "₹4000",
+    discountedPrice: "₹3000",
+  },
+  {
+    id: 7,
+    name: "DTP",
+    icon: Palette,
+    description: "Desktop publishing with design tools",
+    duration: "2 Months",
+    students: "90+",
+    rating: 4.7,
+    originalPrice: "₹6000",
+    discountedPrice: "₹4500",
   },
   {
     id: 8,
-    name: "DTP / DTP with AI",
+    name: "DTP with AI",
     icon: Palette,
     description: "Desktop publishing & AI design tools",
     duration: "3 Months",
     students: "90+",
     rating: 4.7,
-    originalPrice: "₹6000",
-    discountedPrice: "₹4200"
+    originalPrice: "₹7000",
+    discountedPrice: "₹5500",
   }
 ];
+
 
 const CoursesSection = ({ contactRef }: { contactRef: React.RefObject<HTMLDivElement> }) => {
   const scrollToContact = () => {
@@ -169,9 +170,9 @@ const CoursesSection = ({ contactRef }: { contactRef: React.RefObject<HTMLDivEle
                     <div className="text-sm text-muted-foreground line-through">
                       {course.originalPrice}
                     </div>
-                    <div className="text-2xl font-bold text-primary">
+                    {/* <div className="text-2xl font-bold text-primary">
                       {course.discountedPrice}
-                    </div>
+                    </div> */}
                   </div>
 
                  <Button
