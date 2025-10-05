@@ -49,7 +49,14 @@ const HeroSection = ({ contactRef }: { contactRef: React.RefObject<HTMLDivElemen
           {/* CTA Buttons - FIXED VERSION */}
           <div className='flex flex-col sm:flex-row gap-4 justify-center'>
             {/* Method 1: Override with explicit styling */}
-            <Button variant='hero' size='lg' className='text-xl px-8 py-4 bg-orange-500 hover:bg-orange-600 text-white font-semibold transition-all duration-300 shadow-lg hover:shadow-xl'>
+            <Button variant='hero' size='lg' className='text-xl px-8 py-4 bg-orange-500 hover:bg-orange-600 text-white font-semibold transition-all duration-300 shadow-lg hover:shadow-xl'
+             onClick={() => {
+
+              if (contactRef.current) {
+                contactRef.current.scrollIntoView({ behavior: "smooth" });
+              }
+            }}
+            >
               View Courses
             </Button>
             <Button

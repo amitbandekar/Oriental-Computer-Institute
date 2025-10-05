@@ -34,23 +34,57 @@ const ContactSection = forwardRef<HTMLDivElement>((props, ref) => {
 
   const [status, setStatus] = useState("");
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    const form = e.target;
-    const formData = new FormData(form);
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  e.preventDefault();
+  setLoading(true);
 
-    try {
-      await fetch("/", {
-        method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: new URLSearchParams(formData as any).toString(),
-      });
+  const form = e.currentTarget;
+  const formData = new FormData(form);
+  const whatsappmessage =
+      `📩 *New Inquiry*\n\n` +
+      `👤 Name: ${formData.get('firstName')} ${formData.get('lastName')}\n` +
+      `📞 Phone: ${formData.get('phone')}\n` +
+      `📧 Email: ${formData.get('email')}\n` +
+      `🎯 Course Interest: ${formData.get('course')}\n` +
+      `💬 Message: ${formData.get('message')}\n\n` +
+      `— Sent from Website Contact Form`;
+
+  // Build the payload
+  const payload = {
+    firstName: formData.get("firstName"),
+    lastName: formData.get("lastName"),
+    phone: formData.get("phone"),
+    email: formData.get("email"),
+    course: formData.get("course"),
+    message: formData.get("message"),
+    whatsappmessage: whatsappmessage,
+  };
+
+  try {
+    const res = await fetch("https://amitbandekar.pythonanywhere.com/send-message", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload),
+    });
+
+    if (res.ok) {
+      setFlipped(true);
+      form.reset();
+
+      // Auto flip back after 5 seconds
+      setTimeout(() => setFlipped(false), 5000);
+
       setStatus("success");
-      form.reset(); // clear inputs
-    } catch (err) {
+    } else {
       setStatus("error");
     }
-  };
+  } catch (err) {
+    console.error(err);
+    setStatus("error");
+  } finally {
+    setLoading(false);
+  }
+};
 
   
   {/* 
@@ -80,7 +114,7 @@ const ContactSection = forwardRef<HTMLDivElement>((props, ref) => {
       if (res.ok) {
         setFlipped(true);
         form.reset();
-        // Auto-flip back after 5 seconds
+        Auto-flip back after 5 seconds
         setTimeout(() => setFlipped(false), 5000);
       } else {
         alert('Failed to send message.');
@@ -285,6 +319,11 @@ const ContactSection = forwardRef<HTMLDivElement>((props, ref) => {
                           <option value="Typing Course">Typing Course</option>
                           <option value="Tally Prime with GST">Tally Prime with GST</option>
                           <option value="DTP / DTP with AI">DTP / DTP with AI</option>
+                          <option value="Diploma in IT">Diploma in IT</option>
+                          <option value="Job Starter Pack">Job Starter Pack</option>
+                          <option value="Smart Accountant Pack">Smart Accountant Pack</option>
+                          <option value="Data Mastery Pack">Data Mastery Pack</option>
+                          <option value="Government Exam Pack">Government Exam Pack</option>
                         </select>
                       </div>
 

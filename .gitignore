@@ -9,6 +9,8 @@ lerna-debug.log*
 
 node_modules
 dist
+whatsapp-sender/.wwebjs_auth
+whatsapp-sender/.wwebjs_cache
 dist-ssr
 *.local
 

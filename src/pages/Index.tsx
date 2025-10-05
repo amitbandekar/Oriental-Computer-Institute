@@ -18,7 +18,7 @@ const Index = () => {
       {/* Pass the ref to the HeroSection */}
       <HeroSection contactRef={contactRef} />
       <CoursesSection contactRef={contactRef} />
-      <PackagesSection />
+      <PackagesSection contactRef={contactRef}  />
       <GallerySection />
       {/* Attach the ref to the ContactSection */}
       <ContactSection ref={contactRef} />

@@ -107,12 +107,7 @@ const courses = [
 
 
 const CoursesSection = ({ contactRef }: { contactRef: React.RefObject<HTMLDivElement> }) => {
-  const scrollToContact = () => {
-    if (contactRef.current) {
-      contactRef.current.scrollIntoView({ behavior: "smooth" });
-    }
-  };
-
+  
   return (
     <section className="py-20 bg-secondary/30">
       <div className="container mx-auto px-4">
@@ -124,77 +119,72 @@ const CoursesSection = ({ contactRef }: { contactRef: React.RefObject<HTMLDivEle
           <p className="text-xl text-muted-foreground font-body max-w-2xl mx-auto">
             Master the latest technology skills with our comprehensive course offerings
           </p>
-          <div className="mt-6 inline-flex items-center gap-2 bg-gradient-ganpati text-white px-6 py-3 rounded-full font-subheading">
-            <Star className="w-5 h-5" />
-            30% OFF 
-            <Star className="w-5 h-5" />
-          </div>
+          
         </div>
 
         {/* Courses Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-          {courses.map((course) => {
-            const IconComponent = course.icon;
-            return (
-              <Card key={course.id} className="course-card shadow-card hover:shadow-ganpati border-0 bg-gradient-card">
-                <CardHeader className="text-center pb-4">
-                  <div className="w-16 h-16 mx-auto bg-gradient-ganpati rounded-2xl flex items-center justify-center mb-4 icon-bounce">
-                    <IconComponent className="w-8 h-8 text-white" />
-                  </div>
-                  <CardTitle className="font-subheading text-lg text-foreground">
-                    {course.name}
-                  </CardTitle>
-                  <CardDescription className="font-body text-sm">
-                    {course.description}
-                  </CardDescription>
-                </CardHeader>
-                
-                <CardContent className="text-center">
-                  {/* Course Stats */}
-                  <div className="flex justify-center items-center gap-4 mb-4 text-sm text-muted-foreground">
-                    <div className="flex items-center gap-1">
-                      <Clock className="w-4 h-4" />
-                      {course.duration}
-                    </div>
-                    
-                  </div>
+      {/* Courses Grid with Fixed Heights */}
+<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+  {courses.map((course) => {
+    const IconComponent = course.icon;
+    return (
+      <Card key={course.id} className="course-card shadow-card hover:shadow-ganpati border-0 bg-gradient-card flex flex-col h-full">
+        <CardHeader className="text-center pb-4">
+          <div className="w-16 h-16 mx-auto bg-gradient-ganpati rounded-2xl flex items-center justify-center mb-4 icon-bounce">
+            <IconComponent className="w-8 h-8 text-white" />
+          </div>
+          <CardTitle className="font-subheading text-lg text-foreground min-h-[3.5rem] flex items-center justify-center">
+            {course.name}
+          </CardTitle>
+          <CardDescription className="font-body text-sm min-h-[2.5rem] flex items-center justify-center">
+            {course.description}
+          </CardDescription>
+        </CardHeader>
+        
+        <CardContent className="text-center flex flex-col flex-grow justify-between">
+          <div>
+            {/* Course Stats */}
+            <div className="flex justify-center items-center gap-4 mb-4 text-sm text-muted-foreground">
+              <div className="flex items-center gap-1">
+                <Clock className="w-4 h-4" />
+                {course.duration}
+              </div>
+            </div>
 
-                  {/* Rating */}
-                  <div className="flex justify-center items-center gap-1 mb-4">
-                    <Star className="w-4 h-4 fill-yellow-400 text-yellow-400" />
-                    <span className="text-sm font-medium">{course.rating}</span>
-                  </div>
+            {/* Rating */}
+            <div className="flex justify-center items-center gap-1 mb-4">
+              <Star className="w-4 h-4 fill-yellow-400 text-yellow-400" />
+              <span className="text-sm font-medium">{course.rating}</span>
+            </div>
 
-                  {/* Pricing */}
-                  <div className="mb-4">
-                    <div className="text-sm text-muted-foreground line-through">
-                      {course.originalPrice}
-                    </div>
-                    {/* <div className="text-2xl font-bold text-primary">
-                      {course.discountedPrice}
-                    </div> */}
-                  </div>
+            {/* Pricing */}
+            <div className="mb-4">
+              <div className="text-sm text-muted-foreground line-through">
+                {course.originalPrice}
+              </div>
+            </div>
+          </div>
 
-                 <Button
-                  variant="ganpati"
-                  className="w-full"
-                  onClick={() => {
-                    // Dispatch the custom event for "enroll-course"
-                    window.dispatchEvent(new CustomEvent("enroll-course", { detail: course.name }));
-                    // Scroll to the ContactSection
-                    if (contactRef.current) {
-                      contactRef.current.scrollIntoView({ behavior: "smooth" });
-                    }
-                  }}
-                >
-                  Enroll Now
-                </Button>
-
-                </CardContent>
-              </Card>
-            );
-          })}
-        </div>
+          <Button
+            variant="ganpati"
+            className="w-full mt-auto"
+            onClick={() => {
+              // Dispatch the custom event for "enroll-course"
+              window.dispatchEvent(new CustomEvent("enroll-course", { detail: course.name }));
+              // Scroll to the ContactSection
+              debugger;
+              if (contactRef.current) {
+                contactRef.current.scrollIntoView({ behavior: "smooth" });
+              }
+            }}
+          >
+            Enroll Now
+          </Button>
+        </CardContent>
+      </Card>
+    );
+  })}
+</div>
       </div>
     </section>
   );

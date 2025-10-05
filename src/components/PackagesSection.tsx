@@ -127,7 +127,7 @@ const packages = [
   }
 ];
 
-const PackagesSection = () => {
+const PackagesSection = ({ contactRef }: { contactRef: React.RefObject<HTMLDivElement> }) => {
   return (
     <section className="py-20 bg-background">
       <div className="container mx-auto px-4">
@@ -222,6 +222,14 @@ const PackagesSection = () => {
                   <Button 
                     variant={pkg.popular ? "default" : "cta"} 
                     className="w-full"
+                    onClick={() => {
+                    // Dispatch the custom event for "enroll-course"
+                    window.dispatchEvent(new CustomEvent("enroll-course", { detail: pkg.name }));
+                    // Scroll to the ContactSection
+                    if (contactRef.current) {
+                      contactRef.current.scrollIntoView({ behavior: "smooth" });
+                    }
+                  }}
                   >
                     Choose Package
                   </Button>

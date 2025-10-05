@@ -11,6 +11,7 @@ import { useState, useEffect } from "react";
 import a1 from '@/assets/1.jpeg';
 import a2 from '@/assets/2.jpeg';
 import a3 from '@/assets/3.jpeg';
+import a4 from '@/assets/4.jpeg';
 
 
 const GallerySection = () => {
@@ -43,11 +44,11 @@ const GallerySection = () => {
       description: "Head of Department addressing students"
     },
     {
-      id: 6,
-      src: "/placeholder.svg",
-      alt: "Certificate Distribution",
-      title: "Achievement Celebration",
-      description: "Students receiving course certificates"
+      id: 4,
+      src: a4,
+      alt: "Certificates",
+      title: "Class Certificates",
+      description: "Course certificates achieved by our class"
     }
   ];
 
