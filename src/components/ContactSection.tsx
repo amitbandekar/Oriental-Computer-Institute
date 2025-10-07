@@ -312,13 +312,13 @@ const ContactSection = forwardRef<HTMLDivElement>((props, ref) => {
                         >
                           <option value="">Select a course</option>
                           <option value="Computer Fundamentals">Computer Fundamentals</option>
-                          <option value="Operating System">Operating System</option>
                           <option value="CCC Course">CCC Course</option>
                           <option value="M.S Office">M.S Office</option>
                           <option value="Advanced Excel">Advanced Excel</option>
-                          <option value="Typing Course">Typing Course</option>
                           <option value="Tally Prime with GST">Tally Prime with GST</option>
-                          <option value="DTP / DTP with AI">DTP / DTP with AI</option>
+                          <option value="Typing Course (English / Hindi / Marathi)">Typing Course (English / Hindi / Marathi)</option>
+                          <option value="DTP">DTP</option>
+                          <option value="DTP with AI">DTP with AI</option>                         
                           <option value="Diploma in IT">Diploma in IT</option>
                           <option value="Job Starter Pack">Job Starter Pack</option>
                           <option value="Smart Accountant Pack">Smart Accountant Pack</option>

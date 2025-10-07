@@ -159,7 +159,7 @@ const CoursesSection = ({ contactRef }: { contactRef: React.RefObject<HTMLDivEle
 
             {/* Pricing */}
             <div className="mb-4">
-              <div className="text-sm text-muted-foreground line-through">
+              <div className="text-sm text-muted-foreground ">
                 {course.originalPrice}
               </div>
             </div>
